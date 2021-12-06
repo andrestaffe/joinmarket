@@ -6,21 +6,21 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 
-ARG VERSION=v0.8.0
+ARG VERSION=v0.9.4
 ARG REPO=https://github.com/JoinMarket-Org/joinmarket-clientserver
 ARG USER=joinmarket
 ARG DIR=/data/
 
-FROM python:3.8.5-slim-buster AS final
+FROM python:3.8.12-slim-buster AS final
 
-LABEL maintainer="nolim1t (hello@nolim1t.co)"
+LABEL maintainer="andre (github@plmvi.de)"
 
 ARG VERSION
 ARG REPO
 
 # Setup dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends python3-dev python3-pip git build-essential automake pkg-config libtool libffi-dev libssl-dev libgmp-dev libsodium-dev pwgen &&
-    apt-get clean &&
+RUN apt-get update && apt-get install - qq-y --no-install-recommends python3-dev python3-pip git build-essential automake pkg-config libtool libffi-dev libssl-dev libgmp-dev libsodium-dev pwgen && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 WORKDIR /
 RUN git clone https://github.com/bitcoin-core/secp256k1.git
